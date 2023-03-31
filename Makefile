@@ -2,7 +2,7 @@ CC ?= gcc
 CFLAGS ?= -g -Wall
 LIBS = -lncurses
 
-SRC = main.c
+SRC = main.c information.c
 EXEC = hexedit
 
 PREFIX ?= /usr/local
@@ -10,7 +10,7 @@ PREFIX ?= /usr/local
 .PHONY: build
 build: $(SRC)
 	@echo "Compiling..."
-	$(CC) $(CFLAGS) $< -o $(EXEC) $(LIBS)
+	$(CC) $(CFLAGS) $^ -o $(EXEC) $(LIBS)
 	@echo "Compilation Complete."
 
 .PHONY: install
