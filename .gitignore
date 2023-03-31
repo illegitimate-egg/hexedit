@@ -1,0 +1,4 @@
+# Ignore Nix Related Builds
+release/
+# Ignore make builds
+hexedit
