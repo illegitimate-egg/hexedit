@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
 	cbreak();
 	raw();
 	noecho();
+	curs_set(0);
 	
 	keypad(stdscr, TRUE);
 
@@ -18,6 +19,7 @@ int main(int argc, char *argv[]) {
 	refresh();
 
 	WINDOW *content_window = create_content_window();
+	update_content_window(content_window, -16934, 0x3A);
 
 	while((ch = getch()) != KEY_F(1)) {
 		switch(ch) {
