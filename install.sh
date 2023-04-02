@@ -125,8 +125,8 @@ main() {
   msg "Extract ${TAR_FILE}"
   tar -xzf "$TAR_FILE" -C "$TMPDIR/"
 
-  if has zfxtop; then
-    OUT="$(dirname "$(command -v zfxtop)")"
+  if has hexedit; then
+    OUT="$(dirname "$(command -v hexedit)")"
   else
     OUT="/usr/local/bin"
   fi
