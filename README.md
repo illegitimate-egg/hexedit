@@ -22,7 +22,7 @@ curl -sSL raw.githubusercontent.com/illegitimate-egg/hexedit/master/install.sh |
 ```
 Using `wget`:
 ```bash
-wget -qO- raw.githubusercontent.com/illegitimate-egg/hexedit/master/install.sh
+wget -qO- raw.githubusercontent.com/illegitimate-egg/hexedit/master/install.sh | sh
 ```
 Using `Nix`:
 ```bash
