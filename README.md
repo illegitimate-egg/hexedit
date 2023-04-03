@@ -18,11 +18,11 @@ It comes with multiple ways to install, from a cURL-to-Bash approach to a simple
 # Installation
 Using `cURL`:
 ```bash
-curl -sSL raw.githubusercontent.com/illegitimate-egg/hexedit/master/install.sh | sh
+curl -sSL raw.githubusercontent.com/illegitimate-egg/hexedit/main/install.sh | sh
 ```
 Using `wget`:
 ```bash
-wget -qO- raw.githubusercontent.com/illegitimate-egg/hexedit/master/install.sh | sh
+wget -qO- raw.githubusercontent.com/illegitimate-egg/hexedit/main/install.sh | sh
 ```
 Using `Nix`:
 ```bash
