@@ -32,7 +32,6 @@ release: $(SRC)
 	mkdir -p release/
 	$(CC) $(CFLAGS) -m64 $^ -o release/hexedit_$(VERSION)_linux_amd64 $(LIBS)
 	$(CC) $(CFLAGS) -m32 $^ -o release/hexedit_$(VERSION)_linux_386 $(LIBS)
-	touch checksums.txt
 	tar -czvf release/hexedit_$(VERSION)_linux_386.tar.gz release/hexedit_$(VERSION)_linux_386
 	tar -czvf release/hexedit_$(VERSION)_linux_amd64.tar.gz release/hexedit_$(VERSION)_linux_amd64
 	cd release/ ; \
