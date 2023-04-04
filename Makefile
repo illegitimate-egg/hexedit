@@ -4,7 +4,7 @@ LIBS = -lncurses
 
 VERSION ?= SPECIFY A VERSION
 
-SRC = main.c information.c
+SRC = main.c information.c editor.c
 EXEC = hexedit
 
 PREFIX ?= /usr/local
