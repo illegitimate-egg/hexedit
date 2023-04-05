@@ -26,6 +26,11 @@ clean:
 	rm -rf $(EXEC)
 	rm -rf release/
 
+.PHONY: manual
+manual:
+	pandoc man.md -s -t man -o hexedit.1
+	gzip hexedit.1
+
 .PHONY: release
 release: $(SRC)
 	@echo -e "\033[32m>>> Building for release.\033[0m"

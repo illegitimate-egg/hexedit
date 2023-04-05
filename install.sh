@@ -120,6 +120,9 @@ main() {
     download "checksums.txt" "$RELEASES_URL/download/$TAG/checksums.txt"
 
     verify_checksums
+
+    msg "Downloading manual page"
+    download "hexedit.1.gz" "https://raw.githubusercontent.com/illegitimate-egg/hexedit/master/hexedit.1.gz"
   )
 
   msg "Extract ${TAR_FILE}"
@@ -139,6 +142,12 @@ main() {
   elif has sudo; then
     sudo mv "${TMPDIR}/${NAME}_${VERSION}_${OS}_${ARCH}" "${OUT}/${NAME}"
   fi
+
+  msg "Install manual page"
+  sudo mv "${TMPDIR}/hexedit.1.gz" "/user/share/man/man1/hexedit.1.gz"
+
+  msg "Update mandb"
+  sudo mandb
 
   compl "Installation COMPLETED."
 }
