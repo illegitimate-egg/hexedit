@@ -144,10 +144,10 @@ main() {
   fi
 
   msg "Install manual page"
-  sudo mv "${TMPDIR}/hexedit.1.gz" "/user/share/man/man1/hexedit.1.gz"
+  sudo mv "${TMPDIR}/hexedit.1.gz" "/usr/share/man/man1/hexedit.1.gz"
 
   msg "Update mandb"
-  sudo mandb
+  sudo mandb -q
 
   compl "Installation COMPLETED."
 }
