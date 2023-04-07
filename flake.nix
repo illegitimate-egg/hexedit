@@ -1,23 +1,48 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  description = "A C based hexeditor";
 
-  outputs = inputs:
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  };
+
+  outputs =
+    { self
+    , nixpkgs
+    }:
+
     let
-      system = "x86_64-linux";
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      overlays = [
+        (self: super: {
+          nodejs = super.nodejs-18_x;
+        })
+    ];
+
+      allSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      forAllSystems = f: nixpkgs.lib.genAttrs allSystems (system: f {
+        pkgs = import nixpkgs { inherit overlays system; };
+      });
     in
     {
-      packages.${system}.default = pkgs.stdenv.mkDerivation {
-        pname = "hexedit";
-        version = "0.0.1";
+      packages = forAllSystems ({ pkgs }: {
+        default =
+          let
+            binName = "hexedit";
+            cDependencies = with pkgs; [ ncurses ];
+          in
+          pkgs.stdenv.mkDerivation {
+            name = "hexedit";
+            src = self;
+            
+            makeFlags = [ "PREFIX=${placeholder "out"}" ];
 
-        src = inputs.self;
-
-        makeFlags = [ "PREFIX=${placeholder "out"}" ];
-
-        buildInputs = with pkgs; [
-          ncurses
-        ];
-      };
+            buildInputs = cDependencies;
+          };
+      });
     };
 }
