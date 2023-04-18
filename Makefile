@@ -29,7 +29,7 @@ clean:
 .PHONY: manual
 manual:
 	pandoc man.md -s -t man -o hexedit.1
-	gzip hexedit.1
+	gzip -q hexedit.1
 
 .PHONY: release
 release: $(SRC)

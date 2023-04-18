@@ -1,6 +1,6 @@
 % HEXEDIT(1) hexedit 0.0.1
-% Cameron Peck
-% March 2023
+% illegitimate-egg
+% April 2023
 
 # NAME
 hexedit - Open a hex editor
