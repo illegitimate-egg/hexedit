@@ -24,6 +24,8 @@ WINDOW *create_content_window() {
 	information = create_newwin(height, width, starty, startx, true);
 	wmove(information, 0, 1);
 	wprintw(information, "Content:");
+	wmove(information, 13, 1);
+	wprintw(information, "F1 to exit");
 	wrefresh(information);
 
 	information_content = create_newwin(height - 2, width -2, starty + 1, startx + 1, false);
@@ -35,6 +37,24 @@ WINDOW *create_content_window() {
 }
 
 void update_content_window(WINDOW* local_win, long int data, int offset) {
+
+	wmove(local_win, 1, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 2, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 3, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 6, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 7, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 8, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 10, 8);
+	wprintw(local_win, "          ");
+	wmove(local_win, 11, 8);
+	wprintw(local_win, "          ");
+
 	wmove(local_win, 1, 8);
 	wprintw(local_win, "%u", (unsigned int)(data & 255));
 	wmove(local_win, 2, 8);

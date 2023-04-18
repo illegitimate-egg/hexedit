@@ -1,4 +1,4 @@
-#define VERSION "0.0.2\n"
+#define VERSION "0.1.0\n"
 
 #include <ncurses.h>
 #include <stdbool.h>
@@ -23,9 +23,6 @@ int main(int argc, char *argv[]) {
 		} else if (!strcmp(argv[1], "-v") || !strcmp(argv[1], "--version")) {
 			printf(VERSION);
 			exit(0);
-		} else {
-			help();
-			exit(1);
 		}
 	} else {
 		help();
@@ -62,11 +59,22 @@ int main(int argc, char *argv[]) {
 	rewind(file);
 
 	WINDOW *content_window = create_content_window();
-	draw_main_window(file, sz, content_window);
+	WINDOW *editor_window = draw_main_window(file, sz, content_window);
 
 	while((ch = getch()) != KEY_F(1)) {
 		switch(ch) {
-
+			case KEY_LEFT:
+				move_window_cursor(file, editor_window, 1);
+				break;
+			case KEY_RIGHT:
+				move_window_cursor(file, editor_window, 2);
+				break;
+			case KEY_DOWN:
+				move_window_cursor(file, editor_window, 3);
+				break;
+			case KEY_UP:
+				move_window_cursor(file, editor_window, 4);
+				break;
 		}
 	}
 
