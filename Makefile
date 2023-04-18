@@ -35,8 +35,8 @@ manual:
 release: $(SRC) manual
 	@echo -e "\033[32m>>> Building for release.\033[0m"
 	mkdir -p release/
-	$(CC) $(CFLAGS) -m64 $< -o release/hexedit_$(VERSION)_linux_amd64 $(LIBS)
-	$(CC) $(CFLAGS) -m32 $< -o release/hexedit_$(VERSION)_linux_386 $(LIBS)
+	$(CC) $(CFLAGS) -m64 $(SRC) -o release/hexedit_$(VERSION)_linux_amd64 $(LIBS)
+	$(CC) $(CFLAGS) -m32 $(SRC) -o release/hexedit_$(VERSION)_linux_386 $(LIBS)
 	cd release/ ; \
 		tar -czvf hexedit_$(VERSION)_linux_386.tar.gz hexedit_$(VERSION)_linux_386 ; \
 		tar -czvf hexedit_$(VERSION)_linux_amd64.tar.gz hexedit_$(VERSION)_linux_amd64 ; \
