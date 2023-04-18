@@ -6,7 +6,7 @@
 <br>
 </div>
 
-[//]: # (<img src="logo.png" width="50%" align="right" />)
+<img src=".github/assets/preview.png" width="50%" align="right" />
 
 # Description
 I was tired of there being no good terminal hex editors. So I took matters into my own hands. It's written entirely using `c` and `ncurses` with no extras.
