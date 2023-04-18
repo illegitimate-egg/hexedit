@@ -122,7 +122,7 @@ main() {
     verify_checksums
 
     msg "Downloading manual page"
-    download "hexedit.1.gz" "https://raw.githubusercontent.com/illegitimate-egg/hexedit/master/hexedit.1.gz"
+    download "hexedit.1.gz" "$RELEASES_URL/download/$TAG/hexedit.1.gz"
   )
 
   msg "Extract ${TAR_FILE}"
