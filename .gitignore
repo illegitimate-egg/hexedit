@@ -4,3 +4,5 @@ result/
 hexedit
 # Ignore stuff for release
 release/
+# Ignore built man pages
+hexedit.1.gz

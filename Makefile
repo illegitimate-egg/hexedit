@@ -25,6 +25,7 @@ install: $(EXEC)
 clean:
 	rm -rf $(EXEC)
 	rm -rf release/
+	rm -rf hexedit.1.gz
 
 .PHONY: manual
 manual:
@@ -40,7 +41,7 @@ release: $(SRC) manual
 	cd release/ ; \
 		tar -czvf hexedit_$(VERSION)_linux_386.tar.gz hexedit_$(VERSION)_linux_386 ; \
 		tar -czvf hexedit_$(VERSION)_linux_amd64.tar.gz hexedit_$(VERSION)_linux_amd64 ; \
-		cp ../hexedit.1.gz release/ ; \
+		cp ../hexedit.1.gz . ; \
 		sha256sum hexedit_$(VERSION)_linux_386.tar.gz hexedit_$(VERSION)_linux_amd64.tar.gz > checksums.txt
 	@echo -e "\033[32m>>> Release built, cleaning up.\033[0m"
 	rm -rf release/hexedit_$(VERSION)_linux_386 release/hexedit_$(VERSION)_linux_amd64
