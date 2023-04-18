@@ -1,4 +1,6 @@
 #include "information.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void draw_main_window(FILE* data, size_t length) {
 	WINDOW *local_win, *local_win_content;
