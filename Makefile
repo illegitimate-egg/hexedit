@@ -17,7 +17,7 @@ build: $(SRC)
 
 .PHONY: install
 install: $(EXEC)
-	@echo -e "\033[32m>>> Installing..."
+	@echo -e "\033[32m>>> Installing...\033[0m"
 	install -D $< $(DESTDIR)$(PREFIX)/bin/$(EXEC)
 	@echo -e "\033[32m>>> Installation Complete.\033[0m"
 
