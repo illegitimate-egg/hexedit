@@ -54,7 +54,7 @@ void move_window_cursor(FILE* file, WINDOW* local_win, int direction) {
 			}
 			break;
 		case 3: // Down
-			if(!(cursor_position + 16 < cursor_position)) {
+			if(!(cursor_position + 16 > fsize - 1)) {
 				cursor_position +=16;
 			}
 			break;
