@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int cursor_position = 0;
-int old_cursor_position = 0;
+unsigned int cursor_position = 0;
+unsigned int old_cursor_position = 0;
 size_t fsize = 0;
 unsigned int block = 0;
 
@@ -54,12 +54,12 @@ void move_window_cursor(FILE* file, WINDOW* local_win, int direction) {
 			}
 			break;
 		case 3: // Down
-			if(!(cursor_position + 16 > fsize)) {
+			if(!(cursor_position + 16 < cursor_position)) {
 				cursor_position +=16;
 			}
 			break;
 		case 4: // Up
-			if(!(cursor_position - 16 < 0)) {
+			if(!(cursor_position - 16 > cursor_position)) {
 				cursor_position -=16;
 			}
 			break;
